@@ -1,6 +1,7 @@
 const theme = {
-  lightGrey: '#DEDEDE',
-  grey: '#BEBEBE',
+  white: '#fff',
+  lightGrey: '#F6F7F8',
+  grey: '#E0E4E8',
 
   menu: {
     hover: '#F0F2F3',
