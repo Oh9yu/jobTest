@@ -47,9 +47,8 @@ const Content = styled.section`
 const ContentHeader = styled.header`
   display: flex;
   align-items: center;
-  width: 95%;
+  width: 92%;
   height: 100px;
-  /* background-color: #ddd; */
 `;
 
 const Title = styled.h1`

@@ -12,8 +12,9 @@ const theme = {
     hover: '#003AD6'
   },
   input: {
+    border: '#DEDEDE',
     focus: '#496AF3',
-    shadow: '#DBE1FD'
+    shadow: 'rgba(219, 225, 253, 1)'
   },
   calender: {
     buttonHover: '#DBE1FD',
