@@ -33,13 +33,13 @@ const TextInput = ({
       type='text'
       width={width}
       height={height}
-      padwidth={padwidth}
-      padheight={padheight}
+      $padwidth={padwidth}
+      $padheight={padheight}
       fontSize={fontsize}
-      bdcolor={bdcolor}
-      radius={radius}
-      focuscolor={focuscolor}
-      shadow={shadow}
+      $bdcolor={bdcolor}
+      $radius={radius}
+      $focuscolor={focuscolor}
+      $shadow={shadow}
       placeholder={placeholder}
       onChange={onChange}
     />
@@ -51,26 +51,26 @@ export default TextInput;
 type InputProps = {
   width: number;
   height: number;
-  padwidth?: number;
-  padheight?: number;
+  $padwidth?: number;
+  $padheight?: number;
   fontSize?: number;
-  bdcolor?: string;
-  radius?: number;
-  focuscolor?: string;
-  shadow?: string;
+  $bdcolor?: string;
+  $radius?: number;
+  $focuscolor?: string;
+  $shadow?: string;
 };
 
 const Input = styled.input<InputProps>`
   width: ${(style) => style.width}px;
   height: ${(style) => style.height}px;
-  padding: ${(style) => style.padheight}px ${(style) => style.padwidth}px;
-  border: 1px solid ${(style) => style.bdcolor};
-  border-radius: ${(style) => style.radius}px;
+  padding: ${(style) => style.$padheight}px ${(style) => style.$padwidth}px;
+  border: 1px solid ${(style) => style.$bdcolor};
+  border-radius: ${(style) => style.$radius}px;
   font-size: ${(style) => style.fontSize}px;
   &:focus {
     outline: none;
-    border: 1px solid ${(style) => style.focuscolor};
+    border: 1px solid ${(style) => style.$focuscolor};
     box-shadow: 0 0 0 3px
-      ${(style) => (style.shadow ? style.shadow : 'transparent')};
+      ${(style) => (style.$shadow ? style.$shadow : 'transparent')};
   }
 `;
