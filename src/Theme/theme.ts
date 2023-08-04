@@ -2,6 +2,7 @@ const theme = {
   white: '#fff',
   lightGrey: '#F6F7F8',
   grey: '#E0E4E8',
+  darkGrey: '#BEBEBE',
 
   menu: {
     hover: '#F0F2F3',

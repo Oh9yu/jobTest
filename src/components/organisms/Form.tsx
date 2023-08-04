@@ -2,6 +2,7 @@ import React from 'react';
 import { styled, useTheme } from 'styled-components';
 import Button from '../atoms/Button';
 import TextInput from '../atoms/TextInput';
+import RadioButton from '../atoms/RadioButton';
 
 const Form = () => {
   const theme = useTheme();
@@ -14,12 +15,15 @@ const Form = () => {
         padwidth={12}
         padheight={5}
         radius={5}
+        bdcolor={theme.input.border}
         focuscolor={theme.input.focus}
         shadow={theme.input.shadow}
         onChange={() => {
           console.log(13);
         }}
       />
+      <RadioButton radioName='test' name='test1' />
+      <RadioButton radioName='test' name='test2' />
       <Button
         name='저장'
         width={74}
