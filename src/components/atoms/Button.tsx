@@ -27,8 +27,8 @@ const Button = ({
       width={width}
       height={height}
       color={color}
-      bgcolor={bgColor}
-      hvcolor={hvColor}
+      $bgcolor={bgColor}
+      $hvcolor={hvColor}
       radius={radius}
       onClick={onClick}
     >
@@ -43,8 +43,8 @@ type ButtonProps = {
   width: number;
   height: number;
   color?: string;
-  bgcolor?: string;
-  hvcolor?: string;
+  $bgcolor?: string;
+  $hvcolor?: string;
   radius?: number;
 };
 
@@ -54,11 +54,11 @@ const ButtonContainer = styled.button<ButtonProps>`
   justify-content: center;
   width: ${(style) => style.width}px;
   height: ${(style) => style.height}px;
-  background-color: ${(style) => style.bgcolor};
+  background-color: ${(style) => style.$bgcolor};
   color: ${(style) => style.color};
   border: none;
   border-radius: ${(style) => style.radius}px;
   &:hover {
-    background-color: ${(style) => style.hvcolor};
+    background-color: ${(style) => style.$hvcolor};
   }
 `;
