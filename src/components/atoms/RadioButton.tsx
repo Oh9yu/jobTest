@@ -25,16 +25,16 @@ const RadioButton = ({
     <Lable
       width={lableWidth}
       height={lableHeight}
-      marginright={marginRight}
+      $marginRight={marginRight}
       fontSize={fontSize}
     >
       <Radio
         type='radio'
         name={radioName}
-        borderColor={theme.grey}
-        hoverBgColor={theme.lightGrey}
-        hoverBdColor={theme.darkGrey}
-        focusColor={focusColor ? focusColor : theme.button.blue}
+        $bordercolor={theme.grey}
+        $hoverBgColor={theme.lightGrey}
+        $hoverBdColor={theme.darkGrey}
+        $focusColor={focusColor ? focusColor : theme.button.blue}
       />
       <RadioName>{name}</RadioName>
     </Lable>
@@ -43,27 +43,27 @@ const RadioButton = ({
 
 export default RadioButton;
 
-type LableProps = {
+type LabelProps = {
   width: number;
   height: number;
-  marginright: number;
+  $marginRight: number;
   fontSize: number;
 };
 
 type RadioProps = {
-  borderColor?: string;
-  hoverBgColor?: string;
-  hoverBdColor?: string;
-  focusColor?: string;
+  $bordercolor?: string;
+  $hoverBgColor?: string;
+  $hoverBdColor?: string;
+  $focusColor?: string;
 };
 
-const Lable = styled.label<LableProps>`
+const Lable = styled.label<LabelProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: ${(style) => style.width}px;
   height: ${(style) => style.height}px;
-  margin-right: ${(style) => style.marginright}px;
+  margin-right: ${(style) => style.$marginRight}px;
   font-size: ${(style) => style.fontSize}px;
   cursor: pointer;
 `;
@@ -72,14 +72,14 @@ const Radio = styled.input<RadioProps>`
   appearance: none;
   width: 16px;
   height: 16px;
-  border: 1px solid ${(style) => style.borderColor};
+  border: 1px solid ${(style) => style.$bordercolor};
   border-radius: 50%;
   &:hover {
-    background-color: ${(style) => style.hoverBgColor};
-    border: 1px solid ${(style) => style.hoverBdColor};
+    background-color: ${(style) => style.$hoverBgColor};
+    border: 1px solid ${(style) => style.$hoverBdColor};
   }
   &:focus {
-    border: 5px solid ${(style) => style.focusColor};
+    border: 5px solid ${(style) => style.$focusColor};
   }
 `;
 

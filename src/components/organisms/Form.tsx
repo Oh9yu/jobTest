@@ -3,6 +3,7 @@ import { styled, useTheme } from 'styled-components';
 import Button from '../atoms/Button';
 import TextInput from '../atoms/TextInput';
 import RadioButton from '../atoms/RadioButton';
+import CheckBox from '../atoms/CheckBoxButton';
 
 const Form = () => {
   const theme = useTheme();
@@ -36,6 +37,7 @@ const Form = () => {
           console.log(123);
         }}
       />
+      <CheckBox />
     </FormContainer>
   );
 };
