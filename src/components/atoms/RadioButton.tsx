@@ -43,21 +43,21 @@ const RadioButton = ({
 
 export default RadioButton;
 
-type LabelProps = {
+type LabelStyle = {
   width: number;
   height: number;
   $marginRight: number;
   fontSize: number;
 };
 
-type RadioProps = {
+type RadioStyle = {
   $bordercolor?: string;
   $hoverBgColor?: string;
   $hoverBdColor?: string;
   $focusColor?: string;
 };
 
-const Lable = styled.label<LabelProps>`
+const Lable = styled.label<LabelStyle>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,7 +68,7 @@ const Lable = styled.label<LabelProps>`
   cursor: pointer;
 `;
 
-const Radio = styled.input<RadioProps>`
+const Radio = styled.input<RadioStyle>`
   appearance: none;
   width: 16px;
   height: 16px;

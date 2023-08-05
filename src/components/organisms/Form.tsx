@@ -37,7 +37,7 @@ const Form = () => {
           console.log(123);
         }}
       />
-      <CheckBox />
+      <CheckBox name='선택1' />
     </FormContainer>
   );
 };
