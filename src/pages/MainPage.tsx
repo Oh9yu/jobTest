@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 import { API } from '../config/APIconfig';
 import Aside from '../components/organisms/Aside';
 import Form from '../components/organisms/Form';
+import { MenuData } from '../constants/MenuData';
 
 const MainPage = () => {
   useEffect(() => {
@@ -12,6 +13,9 @@ const MainPage = () => {
         console.log(res);
       });
   }, []);
+
+  console.log(MenuData);
+
   return (
     <MainContainer>
       <Aside />
