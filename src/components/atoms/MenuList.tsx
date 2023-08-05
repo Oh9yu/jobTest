@@ -6,6 +6,7 @@ type Props = {
   width?: number;
   height?: number;
   padWidth?: number;
+  hoverColor?: string;
   isActive?: boolean;
   activeColor?: string;
   fontSize?: number;
@@ -19,6 +20,7 @@ const MenuList = ({
   height = 36,
   padWidth = 28,
   isActive = false,
+  hoverColor = 'transparents',
   activeColor = 'transparents',
   fontSize = 14,
   foldIcon,
@@ -30,6 +32,7 @@ const MenuList = ({
       height={height}
       $padWidth={padWidth}
       $bgColor={isActive ? activeColor : 'transparents'}
+      $hoverColor={hoverColor}
       onClick={clickHandler}
     >
       <Content>
@@ -47,6 +50,7 @@ type ListStyle = {
   height: number;
   $padWidth: number;
   $bgColor: string;
+  $hoverColor: string;
 };
 
 type NameStyle = {
@@ -61,6 +65,9 @@ const List = styled.li<ListStyle>`
   padding: 0 ${(style) => style.$padWidth}px;
   background-color: ${(style) => style.$bgColor};
   cursor: pointer;
+  &:hover {
+    background-color: ${(style) => style.$hoverColor};
+  }
 `;
 
 const Content = styled.div`

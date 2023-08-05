@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { styled, useTheme } from 'styled-components';
 import MenuList from '../atoms/MenuList';
 
 type MenuData = MainMenu[];
@@ -15,11 +15,13 @@ type SubMenu = {
 };
 
 const Aside = () => {
+  const theme = useTheme();
   return (
     <AsideContainer>
       <MenuList
         name='대제목'
         foldIcon='images/fold_active.png'
+        hoverColor={theme.menu.hover}
         clickHandler={() => {
           console.log(123);
         }}
