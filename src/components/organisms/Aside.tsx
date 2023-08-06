@@ -1,31 +1,39 @@
 import React from 'react';
 import { styled, useTheme } from 'styled-components';
 import MenuList from '../atoms/MenuList';
+import MenuWithSub from '../molecules/MenuWithSub';
 
-type MenuData = MainMenu[];
+type SubMenu = {
+  subMenuId: string;
+  subMenuName: string;
+};
 
 type MainMenu = {
   mainMenuId: string;
   mainMenuName: string;
   subMenuList: SubMenu[];
 };
-type SubMenu = {
-  subMenuId: string;
-  subMenuName: string;
+
+type AsideProps = {
+  menuData: MainMenu[];
+  selectMenu: string;
+  setSelectMenu: (menuId: string) => void;
 };
 
-const Aside = () => {
-  const theme = useTheme();
+const Aside = ({ menuData, selectMenu, setSelectMenu }: AsideProps) => {
   return (
     <AsideContainer>
-      <MenuList
-        name='대제목'
-        foldIcon='images/fold_active.png'
-        hoverColor={theme.menu.hover}
-        clickHandler={() => {
-          console.log(123);
-        }}
-      />
+      {menuData &&
+        menuData.map((data) => {
+          return (
+            <MenuWithSub
+              key={data.mainMenuId}
+              data={data}
+              selectMenu={selectMenu}
+              setSelectMenu={setSelectMenu}
+            />
+          );
+        })}
     </AsideContainer>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { styled, useTheme } from 'styled-components';
 
 type Props = {
   name: string;
@@ -20,19 +20,20 @@ const MenuList = ({
   height = 36,
   padWidth = 28,
   isActive = false,
-  hoverColor = 'transparents',
+  hoverColor,
   activeColor = 'transparents',
   fontSize = 14,
   foldIcon,
   clickHandler
 }: Props) => {
+  const theme = useTheme();
   return (
     <List
       width={width}
       height={height}
       $padWidth={padWidth}
       $bgColor={isActive ? activeColor : 'transparents'}
-      $hoverColor={hoverColor}
+      $hoverColor={hoverColor ? hoverColor : theme.menu.hover}
       onClick={clickHandler}
     >
       <Content>

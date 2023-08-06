@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import { API } from '../config/APIconfig';
 import Aside from '../components/organisms/Aside';
@@ -6,6 +6,12 @@ import Form from '../components/organisms/Form';
 import { MenuData } from '../constants/MenuData';
 
 const MainPage = () => {
+  const [selectMenu, setSelectMenu] = useState('');
+
+  const selectMenuHandler = (menuId: string) => {
+    setSelectMenu(menuId);
+  };
+
   useEffect(() => {
     fetch(`${API.test}`)
       .then((res) => res.json())
@@ -14,11 +20,13 @@ const MainPage = () => {
       });
   }, []);
 
-  console.log(MenuData);
-
   return (
     <MainContainer>
-      <Aside />
+      <Aside
+        menuData={MenuData}
+        selectMenu={selectMenu}
+        setSelectMenu={selectMenuHandler}
+      />
       <Content>
         <ContentHeader>
           <Title>타이틀</Title>
