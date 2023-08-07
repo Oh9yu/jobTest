@@ -37,6 +37,8 @@ const MenuWithSub = ({ data, selectMenu, setSelectMenu }: Props) => {
         name={data.mainMenuName}
         clickHandler={subOpenHandler}
         foldIcon={isOpen ? isFoldIcon.fold : isFoldIcon.unfold}
+        isActive={isOpen}
+        // activeColor={theme.menu.active}
       />
       <ListContainer>
         {isOpen &&
@@ -47,11 +49,7 @@ const MenuWithSub = ({ data, selectMenu, setSelectMenu }: Props) => {
                 name={subData.subMenuName}
                 padWidth={40}
                 isActive={selectMenu === subData.subMenuId}
-                activeColor={
-                  selectMenu === subData.subMenuId
-                    ? theme.menu.active
-                    : 'transparents'
-                }
+                activeColor={theme.menu.active}
                 clickHandler={() => {
                   setSelectMenu(subData.subMenuId);
                 }}

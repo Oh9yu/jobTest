@@ -22,7 +22,7 @@ const RadioButton = ({
 }: Props) => {
   const theme = useTheme();
   return (
-    <Lable
+    <Label
       width={lableWidth}
       height={lableHeight}
       $marginRight={marginRight}
@@ -37,7 +37,7 @@ const RadioButton = ({
         $focusColor={focusColor ? focusColor : theme.button.blue}
       />
       <RadioName>{name}</RadioName>
-    </Lable>
+    </Label>
   );
 };
 
@@ -57,7 +57,7 @@ type RadioStyle = {
   $focusColor?: string;
 };
 
-const Lable = styled.label<LabelStyle>`
+const Label = styled.label<LabelStyle>`
   display: flex;
   justify-content: space-between;
   align-items: center;

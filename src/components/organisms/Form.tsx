@@ -4,6 +4,7 @@ import Button from '../atoms/Button';
 import TextInput from '../atoms/TextInput';
 import RadioButton from '../atoms/RadioButton';
 import CheckBox from '../atoms/CheckBoxButton';
+import SelectDate from '../atoms/SelectDate';
 
 const Form = () => {
   const theme = useTheme();
@@ -23,8 +24,10 @@ const Form = () => {
           console.log(13);
         }}
       />
+
       <RadioButton radioName='test' name='test1' />
       <RadioButton radioName='test' name='test2' />
+
       <Button
         name='저장'
         width={74}
@@ -38,6 +41,7 @@ const Form = () => {
         }}
       />
       <CheckBox name='선택1' />
+      <SelectDate />
     </FormContainer>
   );
 };
