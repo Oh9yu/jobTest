@@ -1,34 +1,23 @@
 import React from 'react';
 import { styled, useTheme } from 'styled-components';
 import Button from '../atoms/Button';
-import TextInput from '../atoms/TextInput';
-import RadioButton from '../atoms/RadioButton';
 import CheckBox from '../atoms/CheckBoxButton';
 import SelectDate from '../atoms/SelectDate';
-import DropDownSelect from '../customs/DropDownSelect';
+import TextForm from '../molecules/TextForm';
+import InputForm from '../molecules/InputForm';
+import RadioForm from '../molecules/RadioForm';
+import DateForm from '../molecules/DateForm';
+import CheckBoxForm from '../molecules/CheckBoxForm';
 
 const Form = () => {
   const theme = useTheme();
   return (
     <FormContainer>
-      <TextInput
-        width={160}
-        height={34}
-        fontsize={14}
-        padwidth={12}
-        padheight={5}
-        radius={5}
-        bdcolor={theme.input.border}
-        focuscolor={theme.input.focus}
-        shadow={theme.input.shadow}
-        onChange={() => {
-          console.log(13);
-        }}
-      />
-
-      <RadioButton radioName='test' name='test1' />
-      <RadioButton radioName='test' name='test2' />
-
+      <TextForm />
+      <InputForm />
+      <RadioForm />
+      <DateForm />
+      <CheckBoxForm />
       <Button
         name='저장'
         width={74}
@@ -37,19 +26,15 @@ const Form = () => {
         bgColor={theme.button.blue}
         hvColor={theme.button.hover}
         radius={5}
-        onClick={() => {
-          console.log(123);
-        }}
+        onClick={() => {}}
       />
-      <CheckBox name='선택1' />
-      <SelectDate />
     </FormContainer>
   );
 };
 
 export default Form;
 
-const FormContainer = styled.article`
+const FormContainer = styled.section`
   width: 92%;
   height: 510px;
   padding-top: 16px;
