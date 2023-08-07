@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     width: 276px;
     border: 1px solid #F0F2F3;
     border-radius: 5;
-    padding-top: 10px;
+    padding-top: 16px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
       .react-datepicker__month-container{
         width: 100%;

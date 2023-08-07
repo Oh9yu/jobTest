@@ -1,5 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
+import DropDownSelect from './DropDownSelect';
+
+const months = [
+  '1월',
+  '2월',
+  '3월',
+  '4월',
+  '5월',
+  '6월',
+  '7월',
+  '8월',
+  '9월',
+  '10월',
+  '11월',
+  '12월'
+];
 
 const DateCustomHeader = ({
   date,
@@ -12,24 +28,17 @@ const DateCustomHeader = ({
 }: any) => {
   const currentYear = new Date().getFullYear();
   const years = Array.from(
-    { length: currentYear - 2000 + 1 },
-    (_, index) => `${2000 + index}`
+    { length: currentYear - 2015 + 1 },
+    (_, index) => `${2015 + index}`
   );
 
-  const months = [
-    '1월',
-    '2월',
-    '3월',
-    '4월',
-    '5월',
-    '6월',
-    '7월',
-    '8월',
-    '9월',
-    '10월',
-    '11월',
-    '12월'
-  ];
+  const yearHandler = (value: string) => {
+    changeYear(value);
+  };
+
+  const monthHandler = (value: string) => {
+    changeMonth(months.indexOf(value));
+  };
 
   return (
     <Container>
@@ -42,30 +51,17 @@ const DateCustomHeader = ({
         $activeImg='images/prevArrow_active.png'
       />
       <Wrapper>
-        <SelectBox
-          width={100}
-          value={date.getFullYear()}
-          onChange={({ target: { value } }) => changeYear(value)}
-        >
-          {years.map((option: any) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </SelectBox>
-        <SelectBox
-          width={72}
-          value={months[date.getMonth()]}
-          onChange={({ target: { value } }) =>
-            changeMonth(months.indexOf(value))
-          }
-        >
-          {months.map((option: any) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </SelectBox>
+        <DropDownSelect
+          selectData={years}
+          dateValue={date.getFullYear()}
+          selectHandler={yearHandler}
+          selectType='year'
+        />
+        <DropDownSelect
+          selectData={months}
+          dateValue={months[date.getMonth()]}
+          selectHandler={monthHandler}
+        />
       </Wrapper>
 
       <ArrowImg
@@ -97,7 +93,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 34px;
   background-color: #fff;
   padding: 0 20px;
 `;
@@ -108,6 +103,7 @@ const Wrapper = styled.div`
 
 const SelectBox = styled.select<SelectStyle>`
   width: ${(style) => style.width}px;
+  height: 34px;
   padding: 5px 12px;
   margin: 0 2px;
   border: 1px solid #dedede;
@@ -126,11 +122,6 @@ const SelectBox = styled.select<SelectStyle>`
     border: 1px solid #496af3;
     box-shadow: 0 0 0 3px rgba(219, 225, 253, 1);
   }
-
-  option:hover {
-    background-color: #fff;
-    color: #000;
-  }
 `;
 
 const ArrowImg = styled.button<ArrowStyle>`
@@ -146,9 +137,4 @@ const ArrowImg = styled.button<ArrowStyle>`
     background-size: cover;
     background-position: center center;
   }
-`;
-
-const SelectOption = styled.option`
-  background-color: #fff;
-  appearance: none;
 `;
