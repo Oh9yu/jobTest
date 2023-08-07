@@ -5,8 +5,10 @@ import CheckBoxButton from '../atoms/CheckBoxButton';
 const CheckBoxForm = ({ title, data }: any) => {
   return (
     <Container>
-      <Title>123</Title>
-      <CheckBoxButton name='선택 1' />
+      <Title>{title}</Title>
+      {data.map((value: string, idx: number) => {
+        return <CheckBoxButton key={idx} name={value} />;
+      })}
     </Container>
   );
 };
@@ -23,6 +25,7 @@ const Container = styled.article`
 const Title = styled.h3`
   width: 140px;
   margin-right: 64px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   background-color: #fff;
 `;

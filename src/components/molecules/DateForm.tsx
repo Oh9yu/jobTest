@@ -5,7 +5,7 @@ import SelectDate from '../atoms/SelectDate';
 const DateForm = ({ title, data }: any) => {
   return (
     <Container>
-      <Title>123</Title>
+      <Title>{title}</Title>
       <SelectDate />
     </Container>
   );
@@ -23,6 +23,7 @@ const Container = styled.article`
 const Title = styled.h3`
   width: 140px;
   margin-right: 64px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   background-color: #fff;
 `;

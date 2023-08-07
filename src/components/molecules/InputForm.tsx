@@ -2,12 +2,12 @@ import React from 'react';
 import { styled, useTheme } from 'styled-components';
 import TextInput from '../atoms/TextInput';
 
-const InputForm = () => {
+const InputForm = ({ title }: any) => {
   const theme = useTheme();
 
   return (
     <Container>
-      <Title>123</Title>
+      <Title>{title}</Title>
       <TextInput
         width={160}
         height={34}
@@ -36,6 +36,7 @@ const Container = styled.article`
 const Title = styled.h3`
   width: 140px;
   margin-right: 64px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   background-color: #fff;
 `;

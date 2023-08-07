@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
+import { styled, useTheme } from 'styled-components';
 import { API } from '../config/APIconfig';
 import Aside from '../components/organisms/Aside';
 import Form from '../components/organisms/Form';
 import { MenuData } from '../constants/MenuData';
+import Button from '../components/atoms/Button';
 
 const MainPage = () => {
+  const theme = useTheme();
   const [selectMenu, setSelectMenu] = useState('');
+  const [formValue, setFormValue] = useState({});
 
   const selectMenuHandler = (menuId: string) => {
     setSelectMenu(menuId);

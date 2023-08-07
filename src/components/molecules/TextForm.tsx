@@ -4,7 +4,8 @@ import { styled } from 'styled-components';
 const TextForm = ({ title, data }: any) => {
   return (
     <Container>
-      <Title>123</Title>
+      <Title>{title}</Title>
+      <InfoText>{data}</InfoText>
     </Container>
   );
 };
@@ -21,6 +22,10 @@ const Container = styled.article`
 const Title = styled.h3`
   width: 140px;
   margin-right: 64px;
-  font-weight: 400;
-  background-color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+`;
+
+const InfoText = styled.p`
+  font-size: 14px;
 `;
